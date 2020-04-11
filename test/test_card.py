@@ -1,6 +1,6 @@
 import pytest    # importing test framework
-# inside app folder, locate card.py and import whole class called Card from that file
 from app.card import Card
+# inside app folder, locate card.py and import whole class called Card from that file
 
 
 class TestCard:
@@ -30,3 +30,12 @@ class TestCard:
     def test_card_only_allows_valid_suit(self):
         with pytest.raises(ValueError):
             Card(rank='2', suit='Peanut Butter')
+
+    def test_card_can_create_deck_with_52_cards(self):
+        cards = Card.create_deck_with_52_cards()
+        assert len(cards) == 52
+        assert cards[0] == Card(rank='2', suit='Hearts')
+        assert cards[-1] == Card(rank='Ace', suit='Diamonds')
+
+    def test_card_can_check_if_two_cards_are_equal(self):
+        assert Card(rank='2', suit='Hearts') == Card(rank='2', suit='Hearts')

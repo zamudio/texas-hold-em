@@ -1,6 +1,6 @@
 from app.card import Card
+from app.deck import Deck
 
-card1 = Card(rank='3', suit='Hearts')
-card2 = Card(rank='8', suit='Spades')
-
-# python3 > from main import card1, card2
+deck = Deck()
+cards = Card.create_deck_with_52_cards()
+deck.add_cards(cards)
