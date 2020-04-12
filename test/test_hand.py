@@ -46,14 +46,41 @@ class TestHand:
         hand = Hand(cards=cards)
         assert hand.best_rank() == 'Two Pair'
 
-    # def test_hand_figures_out_three_of_a_kind_is_best_rank(self):
-    #     cards = [
-    #         Card(rank='Ace', suit='Spades'),
-    #         Card(rank='9', suit='Clubs'),
-    #         Card(rank='7', suit='Diamonds'),
-    #         Card(rank='Ace', suit='Diamonds'),
-    #         Card(rank='7', suit='Hearts')
-    #     ]
+    def test_hand_figures_out_three_of_a_kind_is_best_rank(self):
+        cards = [
+            Card(rank='7', suit='Spades'),
+            Card(rank='King', suit='Clubs'),
+            Card(rank='7', suit='Diamonds'),
+            Card(rank='3', suit='Diamonds'),
+            Card(rank='7', suit='Hearts')
+        ]
 
-    #     hand = Hand(cards=cards)
-    #     assert hand.best_rank() == 'Three of a kind'
+        hand = Hand(cards=cards)
+        assert hand.best_rank() == 'Three of a Kind'
+
+    def test_hand_figures_out_straight_is_best_rank(self):
+        pass
+
+    def test_hand_figures_out_flush_is_best_rank(self):
+        pass
+
+    def test_hand_figures_out_full_house_is_best_rank(self):
+        pass
+
+    def test_hand_figures_out_four_of_a_kind_is_best_rank(self):
+        cards = [
+            Card(rank='7', suit='Spades'),
+            Card(rank='King', suit='Clubs'),
+            Card(rank='7', suit='Clubs'),
+            Card(rank='7', suit='Diamonds'),
+            Card(rank='7', suit='Hearts')
+        ]
+
+        hand = Hand(cards=cards)
+        assert hand.best_rank() == 'Four of a Kind'
+
+    def test_hand_figures_out_straight_flush_is_best_rank(self):
+        pass
+
+    def test_hand_figures_out_royal_flush_is_best_rank(self):
+        pass
