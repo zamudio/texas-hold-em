@@ -1,21 +1,36 @@
 import random
 from app.card import Card
 from app.deck import Deck
+from app.hand import Hand
 
+# creates a deck of 52 cards
 deck = Deck()
-cards = Card.create_deck_with_52_cards()
-deck.add_cards(cards)
+deck_of_cards = Card.create_deck_with_52_cards()
+deck.add_cards(deck_of_cards)
+random.shuffle(deck_of_cards)
 
+# creates a player hand with two cards from the deck created above
+player_cards = []
+player_count = 0
+for card in deck.cards:
+    if player_count < 2:
+        player_cards.append(card)
+        deck.remove_cards(card)
+        player_count += 1
 
-random_deal = cards.random.randint(0, 52)
+# creates initial three card draw
+table_hand = []
+table_count = 0
+for card in deck.cards:
+    if table_count < 3:
+        table_hand.append(card)
+        deck.remove_cards(card)
+        table_count += 1
 
-# for card in cards:
-#     print(card)
+# draws fourth card
 
-# dealt_cards = {
-#     Card[random_deal] =
-# }
+# draws fifth and final card
 
-# hand = Hand(cards)
-
-deck.remove_cards(random_deal)
+# evaluates hand
+hand = Hand(player_cards + table_hand)
+hand.best_rank()
