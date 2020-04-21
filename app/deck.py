@@ -5,6 +5,6 @@ class Deck():
     def add_cards(self, new_cards):
         self.cards.extend(new_cards)
 
-    def remove_cards(self, cards):
-        # for card in cards:
-        self.cards.remove(cards)
+    # def remove_cards(self, cards):
+    #     # for card in cards:
+    #     self.cards.remove(cards)

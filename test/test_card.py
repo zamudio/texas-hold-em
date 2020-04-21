@@ -39,3 +39,33 @@ class TestCard:
 
     def test_card_can_check_if_two_cards_are_equal(self):
         assert Card(rank='2', suit='Hearts') == Card(rank='2', suit='Hearts')
+
+    def test_if_card_is_less_than_other_card(self):
+        queen_of_hearts = Card(rank='Queen', suit='Hearts')
+        king_of_hearts = Card(rank='King', suit='Hearts')
+        evaluate = queen_of_hearts < king_of_hearts
+        assert evaluate == True
+
+    def test_cards_are_sorted(self):
+        ace_of_hearts = Card(rank='Ace', suit='Hearts')
+        six_of_spades = Card(rank='6', suit='Spades')
+        six_of_hearts = Card(rank='6', suit='Hearts')
+        nine_of_diamonds = Card(rank='9', suit='Diamonds')
+        ten_of_clubs = Card(rank='10', suit='Clubs')
+
+        cards = [
+            ace_of_hearts,
+            nine_of_diamonds,
+            six_of_spades,
+            ten_of_clubs,
+            six_of_hearts
+        ]
+
+        cards.sort()
+        assert cards == [
+            six_of_spades,
+            six_of_hearts,
+            nine_of_diamonds,
+            ten_of_clubs,
+            ace_of_hearts
+        ]

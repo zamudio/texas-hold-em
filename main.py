@@ -15,22 +15,23 @@ player_count = 0
 for card in deck.cards:
     if player_count < 2:
         player_cards.append(card)
-        deck.remove_cards(card)
+        # deck.remove_cards(card)
         player_count += 1
 
-# creates initial three card draw
-table_hand = []
-table_count = 0
-for card in deck.cards:
-    if table_count < 3:
-        table_hand.append(card)
-        deck.remove_cards(card)
-        table_count += 1
+# # creates initial three card draw
+# table_hand = []
+# table_count = 0
+# for card in deck.cards:
+#     if table_count < 3:
+#         table_hand.append(card)
+#         deck.remove_cards(card)
+#         table_count += 1
 
 # draws fourth card
 
 # draws fifth and final card
 
 # evaluates hand
-hand = Hand(player_cards + table_hand)
+hand = Hand(player_cards)
+# hand = Hand(player_cards + table_hand)
 hand.best_rank()
