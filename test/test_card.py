@@ -12,6 +12,10 @@ class TestCard:
         card = Card(rank='2', suit='Spades')
         assert card.suit == 'Spades'
 
+    def test_card_knows_its_rank_index(self):
+        card = Card(rank='Queen', suit='Hearts')
+        assert card.rank_index == 10
+
     def test_card_has_string_representation_with_rank_and_suit(self):
         card = Card('3', 'Diamonds')
         assert str(card) == '3 of Diamonds'
