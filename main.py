@@ -15,7 +15,7 @@ player_count = 0
 for card in deck.cards:
     if player_count < 2:
         player_cards.append(card)
-        # deck.remove_cards(card)
+        # deck.remove_card(card)
         player_count += 1
 
 # # creates initial three card draw

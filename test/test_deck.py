@@ -15,10 +15,11 @@ class TestDeck:
 
         assert deck.cards == [card]
 
-    # def test_deck_removes_cards_from_its_collection(self):
+    # def test_deck_removes_card_from_its_collection(self):
     #     card = Card(rank='Ace', suit='Spades')
     #     deck = Deck()
-    #     deck.add_cards([card])
-    #     deck.remove_cards([card])
+    #     deck_of_cards = Card.create_deck_with_52_cards()
+    #     deck.add_cards(deck_of_cards)
+    #     deck.remove_card([card])
 
     #     assert deck.cards != [card]

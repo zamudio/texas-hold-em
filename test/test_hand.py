@@ -80,7 +80,16 @@ class TestHand:
         assert hand.best_rank() == 'Flush'
 
     def test_hand_figures_out_full_house_is_best_rank(self):
-        pass
+        cards = [
+            Card(rank='3', suit='Clubs'),
+            Card(rank='3', suit='Hearts'),
+            Card(rank='3', suit='Diamonds'),
+            Card(rank='9', suit='Spades'),
+            Card(rank='9', suit='Diamonds')
+        ]
+
+        hand = Hand(cards=cards)
+        assert hand.best_rank() == 'Full House'
 
     def test_hand_figures_out_four_of_a_kind_is_best_rank(self):
         cards = [
@@ -95,7 +104,19 @@ class TestHand:
         assert hand.best_rank() == 'Four of a Kind'
 
     def test_hand_figures_out_straight_flush_is_best_rank(self):
-        pass
+        cards = [
+            Card(rank=rank, suit='Diamonds')
+            for rank in ['2', '3', '4', '5', '6']
+        ]
+
+        hand = Hand(cards=cards)
+        assert hand.best_rank() == 'Straight Flush'
 
     def test_hand_figures_out_royal_flush_is_best_rank(self):
-        pass
+        cards = [
+            Card(rank=rank, suit='Diamonds')
+            for rank in ['10', 'Jack', 'Queen', 'King', 'Ace']
+        ]
+
+        hand = Hand(cards=cards)
+        assert hand.best_rank() == 'Royal Flush'

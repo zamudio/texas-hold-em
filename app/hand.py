@@ -24,17 +24,19 @@ class Hand():
                 return hand_name
 
     def _royal_flush(self):
-        pass
+        is_straight_flush = self._straight_flush()
+        is_royal = self.cards[-1].rank == 'Ace'
+        return is_straight_flush and is_royal
 
     def _straight_flush(self):
-        pass
+        return self._straight() and self._flush()
 
     def _four_of_a_kind(self):
         four_of_a_kind = self._ranks_with_count(4)
         return len(four_of_a_kind) == 1
 
     def _full_house(self):
-        pass
+        return self._three_of_a_kind() and self._pair()
 
     def _flush(self):
         suits_that_occur_five_times = {
