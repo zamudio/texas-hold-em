@@ -71,7 +71,13 @@ class TestHand:
         assert hand.best_rank() == 'Straight'
 
     def test_hand_figures_out_flush_is_best_rank(self):
-        pass
+        cards = [
+            Card(rank=rank, suit='Diamonds')
+            for rank in ['2', '5', '8', '10', 'Ace']
+        ]
+
+        hand = Hand(cards=cards)
+        assert hand.best_rank() == 'Flush'
 
     def test_hand_figures_out_full_house_is_best_rank(self):
         pass

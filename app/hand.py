@@ -37,7 +37,13 @@ class Hand():
         pass
 
     def _flush(self):
-        pass
+        suits_that_occur_five_times = {
+            suit: suit_count
+            for suit, suit_count in self._card_suit_counts.items()
+            if suit_count >= 5
+        }
+
+        return len(suits_that_occur_five_times) == 1
 
     def _straight(self):
         if len(self.cards) < 5:
@@ -73,6 +79,14 @@ class Hand():
             for rank, rank_count in self._card_rank_counts.items()
             if rank_count == count
         }
+
+    @property
+    def _card_suit_counts(self):
+        card_suit_counts = {}
+        for card in self.cards:
+            card_suit_counts.setdefault(card.suit, 0)
+            card_suit_counts[card.suit] += 1
+        return card_suit_counts
 
     @property
     def _card_rank_counts(self):
