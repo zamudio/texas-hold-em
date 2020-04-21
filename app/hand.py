@@ -40,7 +40,17 @@ class Hand():
         pass
 
     def _straight(self):
-        pass
+        if len(self.cards) < 5:
+            return False
+
+        rank_index_position = [card.rank_index for card in self.cards]
+        starting_rank_index = rank_index_position[0]
+        last_rank_index = rank_index_position[-1]
+        straight_by_index = list(
+            range(starting_rank_index, last_rank_index + 1)
+        )
+
+        return rank_index_position == straight_by_index
 
     def _three_of_a_kind(self):
         three_of_a_kind = self._ranks_with_count(3)
