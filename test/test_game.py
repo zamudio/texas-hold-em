@@ -38,3 +38,12 @@ class TestGame:
         mock_deck.remove_cards.assert_has_calls([
             call(2), call(2)
         ])
+
+        # # safasf
+        # mock_hand = []
+        # for each_player in mock_players:
+        #     cards = each_player.hand.cards
+        #     for each_card in cards:
+        #         mock_hand.append(each_card)
+
+        # assert len(mock_hand) > 0

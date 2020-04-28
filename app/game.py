@@ -7,4 +7,5 @@ class Game():
         self.deck.shuffle()
 
         for player in self.players:
-            self.deck.remove_cards(2)
+            cards = self.deck.remove_cards(2)
+            player.hand.cards.extend(cards)
