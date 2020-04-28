@@ -28,11 +28,13 @@ class TestDeck:
 
         assert mock_shuffle.called_once_with(cards)
 
-        # def test_deck_removes_card_from_its_collection(self):
-        #     card = Card(rank='Ace', suit='Spades')
-        #     deck = Deck()
-        #     deck_of_cards = Card.create_deck_with_52_cards()
-        #     deck.add_cards(deck_of_cards)
-        #     deck.remove_card([card])
+    def test_deck_removes_cards_from_its_collection(self):
+        card1 = Card(rank='Ace', suit='Spades')
+        card2 = Card(rank='4', suit='Diamonds')
+        cards = [card1, card2]
 
-        #     assert deck.cards != [card]
+        deck = Deck()
+        deck.add_cards(cards)
+
+        assert deck.remove_cards(1) == [card1]
+        assert deck.cards == [card2]
