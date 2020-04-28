@@ -2,12 +2,16 @@ import random
 from app.card import Card
 from app.deck import Deck
 from app.hand import Hand
+from app.player import Player
 
 # creates a deck of 52 cards
 deck = Deck()
 deck_of_cards = Card.create_deck_with_52_cards()
 deck.add_cards(deck_of_cards)
 random.shuffle(deck_of_cards)
+
+hand1 = Hand(cards=[])
+player1 = Player(name='M', hand=hand1)
 
 # creates a player hand with two cards from the deck created above
 player_cards = []
